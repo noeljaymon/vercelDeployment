@@ -67,7 +67,20 @@
   </main>
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
   <df-messenger intent="WELCOME" chat-title="SportsAssistant" agent-id="715db512-8dfb-422a-8cd3-91a9a2fc8cf9"
-    language-code="en"></df-messenger>
+    language-code="en">
+    <meta name="viewport" content="width-device-width, initial-scale=1">
+  </df-messenger>
+  <style>
+    df-messenger {
+      --df-messenger-bot-message: #878fac;
+      --df-messenger-button-titlebar-color: #df9b56;
+      --df-messenger-chat-background-color: #fafafa;
+      --df-messenger-font-color: white;
+      --df-messenger-send-icon: #878fac;
+      --df-messenger-user-message: #479b3d;
+    }
+  </style>
+
 </body>
 
 </html>
