@@ -2,7 +2,26 @@
 <html>
 
 <head>
-  <title>EssentiallySports</title>
+  <!--Control Height of the Chat Widget Once Loaded-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      window.addEventListener('dfMessengerLoaded', function (event) {
+        $r1 = document.querySelector("df-messenger");
+        $r2 = $r1.shadowRoot.querySelector("df-messenger-chat");
+        $r3 = $r2.shadowRoot.querySelector("df-messenger-user-input");
+        var sheet = new CSSStyleSheet;
+        // To manage the chat height of the widget once loaded
+        sheet.replaceSync(`div.chat-wrapper[opened="true"] { height: 450px }`);
+        $r2.shadowRoot.adoptedStyleSheets = [sheet];
+      });
+    });
+  </script>
+  <title>Essentially Sports</title>
+
+  <!--make website mobile friendly with responsive layouts-->
+  <meta name="viewport" content="width-device-width, initial-scale=1">
   <style>
     body {
       margin: 0;
@@ -11,7 +30,7 @@
     }
 
     header {
-      background-color: #333;
+      background-color: #464b5a;
       color: white;
       text-align: center;
       padding: 10px;
@@ -25,7 +44,7 @@
 
     nav a {
       display: inline-block;
-      color: #333;
+      color: grey;
       text-decoration: none;
       padding: 5px;
       margin: 0 5px;
@@ -40,14 +59,22 @@
       padding: 20px;
     }
 
-    h1,
-    h2,
-    h3 {
-      color: #333;
+    h1 {
+      color: #EEE;
+    }
+
+    h2 {
+      color: #464b5a;
     }
 
     p {
       line-height: 1.5;
+      color: grey;
+    }
+
+    ul {
+      list-style-type: disc;
+      color: yellowgreen;
     }
   </style>
 </head>
@@ -62,25 +89,35 @@
     <a href="#">Contact</a>
   </nav>
   <main>
-    <h2>Welcome SportHeads</h2>
-    <p>This website is hosted on vercel along with the virtual assist to help get all the information directly.</p>
+    <h2>Welcome SportHeads !</h2>
+    <p>This website is hosted on vercel along with the virtual assist for demo purpose.</p>
+    <h3>Pointers I wanted to Highlight before you start your review </h3>
+    <ul>
+      <li>Built A Mock website Using HTML & CSS</li>
+      <li>Made it Responsive and Mobile friendly</li>
+      <li>Integrated it with Sample Dialogflow Virtual Agent</li>
+      <li>Managed the height of the chat widget once loaded</li>
+      <li>Trained the Bot to Handle FAQ Questions from EssentiallySports Website & Michael Phelps</li>
+      <li>Deployed the Solution using Vercel</li>
+    </ul>
+    <h4>Please do not focus on how the bot is handling the conversation or number of usecases covered<br>as limited
+      training is done at the moment.</h4>
+    The main goal for me in this task was to show my web dev skills and that i go beyond my comfort zone <br> to learn
+    and
+    complete a task.
   </main>
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-  <df-messenger intent="WELCOME" chat-title="SportsAssistant" agent-id="715db512-8dfb-422a-8cd3-91a9a2fc8cf9"
-    language-code="en">
-    <meta name="viewport" content="width-device-width, initial-scale=1">
-  </df-messenger>
   <style>
     df-messenger {
-      --df-messenger-bot-message: #878fac;
-      --df-messenger-button-titlebar-color: #df9b56;
-      --df-messenger-chat-background-color: #fafafa;
-      --df-messenger-font-color: white;
-      --df-messenger-send-icon: #878fac;
-      --df-messenger-user-message: #479b3d;
+      --df-messenger-button-titlebar-color: #464b5a;
+      --df-messenger-bot-message: yellowgreen;
+      --df-messenger-user-message: white;
+      --df-messenger-button-titlebar-font-color: white;
     }
   </style>
-
+  <df-messenger intent="WELCOME" chat-title="Sports Assistant" agent-id="715db512-8dfb-422a-8cd3-91a9a2fc8cf9"
+    language-code="en">
+  </df-messenger>
 </body>
 
 </html>
